@@ -91,7 +91,7 @@ npm run build   # TypeScript / Vue checks and Vite build
 npm run test:ui # Actual Windows window checks; build first
 ```
 
-UI checks briefly display a test pet using an isolated profile. Reports and screenshots go to `test-artifacts/ui/`, without overwriting everyday settings. See [docs/VALIDATION.md](docs/VALIDATION.md). CI runs automated checks and the build. Maintainers can run the “Publish Windows release” workflow to publish a download.
+UI checks briefly display a test pet using an isolated profile. Reports and screenshots go to `test-artifacts/ui/`, without overwriting everyday settings. See [docs/VALIDATION.md](docs/VALIDATION.md). CI runs automated checks and the build. Maintainers can push a `v*` version tag or run the “Publish Windows release” workflow manually to publish a download.
 
 ## Structure
 

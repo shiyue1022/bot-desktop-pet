@@ -91,7 +91,7 @@ npm run build   # TypeScript / Vue 检查和 Vite 构建
 npm run test:ui # Windows 实际窗口检查；需要先 build，会短暂显示测试桌宠
 ```
 
-窗口检查使用隔离配置，并把截图和结果写入 `test-artifacts/ui/`，不会覆盖日常桌宠设置。验证记录见 [docs/VALIDATION.md](docs/VALIDATION.md)。CI 会执行自动化检查和构建；维护者可手动运行 “Publish Windows release” 工作流发布下载包。
+窗口检查使用隔离配置，并把截图和结果写入 `test-artifacts/ui/`，不会覆盖日常桌宠设置。验证记录见 [docs/VALIDATION.md](docs/VALIDATION.md)。CI 会执行自动化检查和构建；维护者可推送 `v*` 版本标签，或手动运行 “Publish Windows release” 工作流发布下载包。
 
 ## 目录
 
