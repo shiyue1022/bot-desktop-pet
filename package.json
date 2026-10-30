@@ -1,0 +1,36 @@
+{
+  "name": "bot-desktop-pet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "description": "A Windows desktop companion with Grok activity sync | 支持 Grok 状态联动的 Windows 桌宠",
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
+    "start": "electron .",
+    "test": "node --test electron/*.test.cjs",
+    "package": "npm run build && node scripts/package.mjs",
+    "test:ui": "node scripts/test-ui.mjs"
+  },
+  "dependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "vite": "^7.0.0",
+    "typescript": "~5.9.3",
+    "vue-tsc": "^3.0.0",
+    "electron": "^39.0.0",
+    "@electron/packager": "^19.0.0",
+    "@types/node": "^24.0.0"
+  },
+  "license": "MIT",
+  "author": "XiangquanRuan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XiangquanRuan/bot-desktop-pet.git"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

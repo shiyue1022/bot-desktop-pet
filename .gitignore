@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+test-artifacts/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+settings.json
+connection.json
+grok-state.json

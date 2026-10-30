@@ -1,0 +1,8 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');const {ActivityController}=require('./activity.cjs');
+const data=(mode,seq=0,at=0)=>({mode,sourceKey:'g',submission:{seq,at}});
+test('submission is visible as questions even if backend already composing',()=>{const c=new ActivityController();assert.equal(c.update(data('idle'),1000),'idle');assert.equal(c.update(data('working',1,1100),1150),'thinking');assert.equal(c.update(data('working',1,1100),2100),'working');assert.equal(c.update(data('idle',1,1100),2400),'idle')});
+test('fast completed reply never leaves a computer running',()=>{const c=new ActivityController();assert.equal(c.update(data('working',1,1000),1000),'thinking');assert.equal(c.update(data('idle',1,1000),1250),'thinking');assert.equal(c.update(data('idle',1,1000),2000),'idle')});
+test('missing acknowledgement expires and disconnect always stops immediately',()=>{const c=new ActivityController();c.update(data('idle'),900);assert.equal(c.update(data('idle',1,1000),1000),'thinking');assert.equal(c.update(data('idle',1,1000),14000),'idle');assert.equal(c.update(data('working'),15000),'thinking');assert.equal(c.update(data('working'),16000),'working');assert.equal(c.update(null,16001),'idle')});
+test('real thinking can continue as long as required without fabricated work',()=>{const c=new ActivityController();assert.equal(c.update(data('thinking'),1000),'thinking');assert.equal(c.update(data('thinking'),20000),'thinking');assert.equal(c.update(data('idle'),20250),'idle')});
+
+test('restart does not replay an already completed submission',()=>{const c=new ActivityController();assert.equal(c.update(data('idle',2,1000),2500),'idle')});
